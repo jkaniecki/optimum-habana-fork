@@ -263,6 +263,7 @@ class GaudiMixtralAttention(MixtralAttention):
         cache_shape = (batch_size, self.num_key_value_heads, max_seq_len, self.head_dim)
         device = self.k_proj.weight.device
         dtype = self.config.torch_dtype
+        print("KV CACHE DTYPE: ", dtype)
         self.k_cache.allocate(inp_seq_len, dtype, device, cache_shape)
         self.v_cache.allocate(inp_seq_len, dtype, device, cache_shape)
 
