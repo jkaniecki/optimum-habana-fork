@@ -265,6 +265,7 @@ class GaudiMixtralAttention(MixtralAttention):
         device = self.k_proj.weight.device
         dtype = self.config.torch_dtype
         assert False, f"KV CACHE DTYPE: {dtype}"
+        logging.basicConfig(filename='logger.log')
         logger.info(f"KV CACHE DTYPE: {dtype}")
         self.k_cache.allocate(inp_seq_len, dtype, device, cache_shape)
         self.v_cache.allocate(inp_seq_len, dtype, device, cache_shape)
